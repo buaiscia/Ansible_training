@@ -1,0 +1,37 @@
+title: |
+  Automation with Ansible
+  Beginners
+
+chat: ""
+
+trainer: "Vladimir Germanov <<vladimir.germanov@embedit.cz>>"
+
+trainer_profile: "https://www.linkedin.com/in/vladimirgermanov"
+
+slides: "https://germanov.pages.homecredit.net/trainings/ansible/beginners/"
+
+slides_repo: "https://git.homecredit.net/germanov/eit.trainings"
+
+lab_playground: "http://tools-cz1vg.cz.nonprod"
+
+exclude:
+- self-paced
+
+chapters:
+- common/title.md
+- logistics-prague.md
+- common/about-slides.md
+- common/toc.md
+- - beginners/Introduction.md
+  - beginners/Introducing_Ansible.md
+  - beginners/Deploying_Ansible.md
+  - beginners/Implementing_Playbooks.md
+  - beginners/Managing_Variables_and_Inclusions.md
+  - beginners/Implementing_Task_Control.md
+  - beginners/Implementing_Jinja2_Templates.md
+- - beginners/Implementing_Roles.md
+  - beginners/Optimizing_Ansible.md
+  - beginners/Implementing_Ansible_Vault.md
+  - beginners/Troubleshooting_Ansible.md
+  - beginners/Links.md
+  - common/thankyou.md

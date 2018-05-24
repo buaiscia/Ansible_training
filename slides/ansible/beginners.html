@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Automation with Ansible Beginners </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="training.css">
+  </head>
+  <body>
+    <textarea id="source">class: title, self-paced
+
+Automation with Ansible<br/>Beginners<br/>
+
+.nav[*Self-paced version*]
+
+.debug[
+```
+?? ansible/
+?? slides/
+
+```
+
+These slides have been built from commit: ??????
+
+[common/title.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/title.md)]
+---
+
+class: title, in-person
+
+Automation with Ansible<br/>Beginners<br/><br/><br/>
+
+.footnote[
+*Be kind to the WiFi!*<br/>
+*Don't stream videos or download big files during the training.*<br/>
+*Put your phones to silent or vibration mode.*<br/>
+*Thank you!*
+
+**Trainer: Vladimir Germanov <<vladimir.germanov@embedit.cz>>**<br/>
+**Slides: https://germanov.pages.homecredit.net/trainings/ansible/beginners/**
+]
+
+.debug[[common/title.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/title.md)]
+---
+## Logistics - Prague
+
+- Hello! We are:
+
+  - .emoji[⛵] Vladimir Germanov ([LinkedIn](https://www.linkedin.com/in/vladimirgermanov))
+
+  - ...
+
+- Training schedule...
+
+  - Thu 24.05.2018 - PPF 607 – 09:00 – 17:00
+
+  - Fri 25.05.2018 - PPF 602 – 08:30 – 17:00
+
+- There will be a lunch break at ...
+
+  (And coffee breaks!)
+
+- Feel free to interrupt for questions at any time
+
+<!--
+- Live feedback, questions, help: 
+-->
+
+.debug[[logistics-prague.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/logistics-prague.md)]
+---
+## About these slides
+
+- All the content is available in a Git repository:
+
+  https://git.homecredit.net/germanov/eit.trainings
+
+- You can get updated "builds" of the slides here:
+
+  https://germanov.pages.homecredit.net/trainings/ansible/beginners/
+
+.exercise[
+```open https://git.homecredit.net/germanov/eit.trainings```<br />
+```open https://germanov.pages.homecredit.net/trainings/ansible/beginners/```
+]
+
+--
+
+- Typos? Mistakes? Questions? Feel free to hover over the bottom of the slide ...
+
+.footnote[.emoji[👇] Try it! The source file will be shown and you can view it on Git and fork and edit it.]
+
+.debug[[common/about-slides.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/about-slides.md)]
+---
+
+name: toc-chapter-1
+
+## Day 1
+
+- [Introduction](#toc-introduction)
+
+- [Introducing Ansible](#toc-introducing-ansible)
+
+- [Deploying Ansible](#toc-deploying-ansible)
+
+- [Implementing Playbooks](#toc-implementing-playbooks)
+
+- [Managing Variable and Inclusions](#toc-managing-variable-and-inclusions)
+
+- [Implementing Task Control](#toc-implementing-task-control)
+
+- [Implementing Jinja2 Templates](#toc-implementing-jinja-templates)
+
+.debug[(auto-generated TOC)]
+---
+name: toc-chapter-2
+
+## Day 2
+
+- [Implementing Roles](#toc-implementing-roles)
+
+- [Optimizing Ansible](#toc-optimizing-ansible)
+
+- [Implementing Ansible Vault](#toc-implementing-ansible-vault)
+
+- [Troubleshooting Ansible](#toc-troubleshooting-ansible)
+
+- [Links and resources](#toc-links-and-resources)
+
+.debug[(auto-generated TOC)]
+
+
+
+.debug[[common/toc.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/toc.md)]
+---
+
+name: toc-introduction
+class: title
+
+Introduction
+
+.nav[
+[Previous section](#toc-)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-introducing-ansible)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Introduction
+
+- This was initially written to support in-person, instructor-led trainings
+
+- These materials are maintained by [Vladimir Germanov](https://www.linkedin.com/in/vladimirgermanov).
+  If you want to contribute, please contact me!
+
+- You can also follow along on your own, at your own pace
+
+- I included as much information as possible in these slides
+
+- I recommend having a mentor to help you ...
+
+- ... Or be comfortable spending some time reading the Ansible
+ [documentation](https://docs.ansible.com) ...
+
+- ... And looking for answers in the [StackOverflow](http://stackoverflow.com/questions/tagged/ansible),
+  and other outlets
+
+.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+---
+
+## Objectives
+
+**Automation with Ansible - Beginners is designed for system administrators**
+**who are intending to use Ansible for automation, configuration, and management.**
+
+- Students will learn how to install and configure Ansible
+
+- Students will also create and run playbooks to configure systems, and
+learn to manage inventories
+
+- Students will manage encryption for Ansible with Ansible Vault
+
+- Students will learn how to troubleshoot problems with Ansible Playbooks and
+Ansible Managed Hosts
+
+.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+---
+
+## Prerequisites
+
+- Basic knowledge of Linux system administration and command-line tools
+
+- Good to have knowledge of (but not mandatory)
+
+  - Vim
+
+  - Tmux/Screen
+
+  - Basic Scripting (Bash, Python, Powershell)
+
+.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+---
+
+## Lab environment
+
+- Ansible playground: [http://tools-cz1vg.cz.nonprod](@LAB@@)
+
+- Training Git repo: [https://git.homecredit.net/germanov/eit.trainings](https://git.homecredit.net/germanov/eit.trainings)
+
+- Presentation slides: [https://germanov.pages.homecredit.net/trainings/ansible/beginners/](https://germanov.pages.homecredit.net/trainings/ansible/beginners/)
+
+.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+---
+
+- How to build your own LAB:
+
+  - Fork training repo
+
+  - Open Ansible playground
+
+    - Create new Instance
+
+    - Clone your forked repo
+
+    - Build empty lab
+
+```bash
+git clone https://git.homecredit.net/<USER>/<REPO> eit.trainings
+cd eit.trainings/ansible/beginners/lab
+./lab.sh -h
+./lab.sh -e
+```
+
+.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+---
+
+.exercise[
+```open https://germanov.pages.homecredit.net/trainings/ansible/beginners/```<br />
+Fork training repo! You will use your fork repo!<br />
+```open https://git.homecredit.net/germanov/eit.trainings```<br />
+```open http://tools-cz1vg.cz.nonprod```<br />
+]
+
+.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+---
+
+name: toc-introducing-ansible
+class: title
+
+Introducing Ansible
+
+.nav[
+[Previous section](#toc-introduction)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-deploying-ansible)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Introducing Ansible
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+---
+
+## Overview of Ansible Architecture
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+---
+
+## Ansible vs Other tools
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+---
+
+name: toc-deploying-ansible
+class: title
+
+Deploying Ansible
+
+.nav[
+[Previous section](#toc-introducing-ansible)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-implementing-playbooks)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Deploying Ansible
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+## Installing Ansible
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+## Managing Ansible Configuration Files
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+## Running Ansible Ad Hoc Commands
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+## Managing Static Inventory
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+## Managing Dynamic Inventories
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+name: toc-implementing-playbooks
+class: title
+
+Implementing Playbooks
+
+.nav[
+[Previous section](#toc-deploying-ansible)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-managing-variable-and-inclusions)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Implementing Playbooks
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+## Writing YAML files
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+* Start of File
+
+```yaml
+"---"
+
+```
+
+* Comments
+
+```yaml
+## This is a comment
+```
+
+* Strings
+
+```yaml
+test: "This is a test"
+```
+
+* Booleans
+
+```yaml
+test_bool: True
+```
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+* Lists
+
+```yaml
+- List1:
+  - List2:
+```
+
+* Dictionaries
+
+```yaml
+Dict1:
+  Dict2:
+```
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+* Line Folding
+
+```yaml
+test: test
+```
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+## Implementing Modules
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+## Implementing Ansible Playbooks
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+name: toc-managing-variable-and-inclusions
+class: title
+
+Managing Variable and Inclusions
+
+.nav[
+[Previous section](#toc-implementing-playbooks)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-implementing-task-control)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Managing Variable and Inclusions
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+---
+
+## Managing Variables
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+---
+
+## Managing Facts
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+---
+
+## Managing Inclusions
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+---
+
+name: toc-implementing-task-control
+class: title
+
+Implementing Task Control
+
+.nav[
+[Previous section](#toc-managing-variable-and-inclusions)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-implementing-jinja-templates)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Implementing Task Control
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+## Contructing Flow Control
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+## Contructing Flow Control - Loops
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+## Contructing Flow Control - Conditions
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+## Implementing Handlers
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+## Implementing Tags
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+## Handling Errors
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+---
+
+name: toc-implementing-jinja-templates
+class: title
+
+Implementing Jinja2 Templates
+
+.nav[
+[Previous section](#toc-implementing-task-control)
+|
+[Back to table of contents](#toc-chapter-1)
+|
+[Next section](#toc-implementing-roles)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Implementing Jinja2 Templates
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+---
+
+## Describing Jijna2 Templates
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+---
+
+## Implementing Jijna2 Templates
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+* something
+
+* something1
+
+* something
+
+.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+---
+
+name: toc-implementing-roles
+class: title
+
+Implementing Roles
+
+.nav[
+[Previous section](#toc-implementing-jinja-templates)
+|
+[Back to table of contents](#toc-chapter-2)
+|
+[Next section](#toc-optimizing-ansible)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Implementing Roles
+
+.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+---
+
+## Describing Roles Structure
+
+.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+---
+
+## Creating Roles
+
+.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+---
+
+## Deploying Roles with Ansible Galaxy
+
+.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+---
+
+name: toc-optimizing-ansible
+class: title
+
+Optimizing Ansible
+
+.nav[
+[Previous section](#toc-implementing-roles)
+|
+[Back to table of contents](#toc-chapter-2)
+|
+[Next section](#toc-implementing-ansible-vault)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Optimizing Ansible
+
+.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+---
+
+## Configuring Connection Types
+
+.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+---
+
+## Configuring Delegation
+
+.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+---
+
+## Configuring Parallelism
+
+.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+---
+
+name: toc-implementing-ansible-vault
+class: title
+
+Implementing Ansible Vault
+
+.nav[
+[Previous section](#toc-optimizing-ansible)
+|
+[Back to table of contents](#toc-chapter-2)
+|
+[Next section](#toc-troubleshooting-ansible)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Implementing Ansible Vault
+
+.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+---
+
+## Configuting Ansible Vault
+
+.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+---
+
+## Executing Ansible Vault
+
+.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+---
+
+name: toc-troubleshooting-ansible
+class: title
+
+Troubleshooting Ansible
+
+.nav[
+[Previous section](#toc-implementing-ansible-vault)
+|
+[Back to table of contents](#toc-chapter-2)
+|
+[Next section](#toc-links-and-resources)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Troubleshooting Ansible
+
+.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+---
+
+## Troubleshooting Playbooks
+
+.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+---
+
+## Troubleshooting Ansible Managed Hosts
+
+.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+---
+
+class: extra-details
+
+## Section Summary
+
+.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+---
+
+name: toc-links-and-resources
+class: title
+
+Links and resources
+
+.nav[
+[Previous section](#toc-troubleshooting-ansible)
+|
+[Back to table of contents](#toc-chapter-2)
+|
+[Next section](#toc-)
+]
+
+.debug[(automatically generated title slide)]
+
+---
+# Links and resources
+
+- [Ansible](https://ansible.com)
+- [Ansible Documentation](https://docs.ansible.com)
+- [StackOverflow](http://stackoverflow.com/questions/tagged/ansible)
+
+.footnote[These slides (and future updates) are on → https://germanov.pages.homecredit.net/trainings/ansible/beginners/]
+
+.debug[[beginners/Links.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Links.md)]
+---
+class: title, self-paced
+
+Thank you!
+
+.debug[[common/thankyou.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/thankyou.md)]
+---
+
+class: title, in-person
+
+That's all, folks! <br/> Questions?
+
+.debug[[common/thankyou.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/thankyou.md)]</textarea>
+    <script src="remark.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create({
+        ratio: '16:9',
+        highlightSpans: true,
+        excludedClasses: ["self-paced"]
+      });
+    </script>
+
+    <!--
+    These two scripts will be available only when loading the
+    content using the pub/sub server. Otherwise, they'll just
+    404 and that's OK.
+    -->
+    <script src="/socket.io/socket.io.js">
+    </script>
+    <script src="/remote.js">
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,71 @@
+version: '3.2'
+services:
+  ansible:
+    container_name: ansible
+    hostname: ansible
+    image: dtr.eit.zone/vladimir.germanov/centos7:eit.base
+    networks:
+      - empty
+    tmpfs:
+      - /run
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # - /root/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+      # - /root/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+      # - /root/.ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+      # - /etc/ansible/hosts:/etc/ansible/hosts
+      # - /etc/ansible/ansible.cfg:/etc/ansible/ansible.cfg
+      - /etc/hosts:/etc/hosts
+    cap_add:
+      - SYS_ADMIN
+  server01:
+    container_name: server01
+    hostname: server01
+    image: dtr.eit.zone/vladimir.germanov/centos7:eit.base
+    networks:
+      - empty
+    tmpfs:
+      - /run
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # - /root/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+      # - /root/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+      # - /root/.ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+      - /etc/hosts:/etc/hosts
+    cap_add:
+      - SYS_ADMIN
+  server02:
+    container_name: server02
+    hostname: server02
+    image: dtr.eit.zone/vladimir.germanov/centos7:eit.base
+    networks:
+      - empty
+    tmpfs:
+      - /run
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # - /root/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+      # - /root/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+      # - /root/.ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+      - /etc/hosts:/etc/hosts
+    cap_add:
+      - SYS_ADMIN
+  server03:
+    container_name: server03
+    hostname: server03
+    image: dtr.eit.zone/vladimir.germanov/centos7:eit.base
+    networks:
+      - empty
+    tmpfs:
+      - /run
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      # - /root/.ssh/id_rsa:/root/.ssh/id_rsa:ro
+      # - /root/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub:ro
+      # - /root/.ssh/authorized_keys:/root/.ssh/authorized_keys:ro
+      - /etc/hosts:/etc/hosts
+    cap_add:
+      - SYS_ADMIN
+
+networks:
+  empty:
