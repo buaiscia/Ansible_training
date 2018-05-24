@@ -134,3 +134,25 @@ python -c 'import yaml, sys; print yaml.load(sys.stdin)' < myyaml.yml
 ---
 
 ## Implementing Ansible Playbooks
+
+* Playbooks are text files written in YAML format
+
+* Ansible playbooks contain plays. where each play serves to define a set of
+operations (tasks) to perform on a specific set of managed hosts (hosts)
+
+* Tasks are executed in the order they are presented
+
+* Ansible playbooks should be written as much idempotent as possible!
+
+---
+
+* Basic structure of a playbook
+
+.exercise[
+\- name: 'Example playbook'<br />
+    hosts: all<br />
+<br />
+   tasks:<br />
+    - name: 'Ping all hosts'<br />
+      ping:<br />
+]

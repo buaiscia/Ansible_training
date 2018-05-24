@@ -15,15 +15,11 @@ Automation with Ansible<br/>Beginners<br/>
 .debug[
 ```
  M slides/ansible/beginners.html
- M slides/ansible/beginners/Deploying_Ansible.md
  M slides/ansible/beginners/Implementing_Playbooks.md
- M slides/ansible/beginners/Introducing_Ansible.md
- M slides/ansible/beginners/Introduction.md
-?? slides/ansible/images/ansible-architecture.png
 
 ```
 
-These slides have been built from commit: ded606b
+These slides have been built from commit: 709177a
 
 
 [common/title.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/title.md)]
@@ -703,6 +699,29 @@ python -c 'import yaml, sys; print yaml.load(sys.stdin)' < myyaml.yml
 ---
 
 ## Implementing Ansible Playbooks
+
+* Playbooks are text files written in YAML format
+
+* Ansible playbooks contain plays. where each play serves to define a set of
+operations (tasks) to perform on a specific set of managed hosts (hosts)
+
+* Tasks are executed in the order they are presented
+
+* Ansible playbooks should be written as much idempotent as possible!
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+* Basic structure of a playbook
+
+.exercise[
+\- name: 'Example playbook'<br />
+    hosts: all<br />
+<br />
+   tasks:<br />
+    - name: 'Ping all hosts'<br />
+      ping:<br />
+]
 
 .debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
 ---
