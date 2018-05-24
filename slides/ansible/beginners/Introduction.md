@@ -50,7 +50,7 @@ Ansible Managed Hosts
 
 ---
 
-## Lab environment
+## Training Lab environment
 
 - Ansible playground: [@@LAB@@](@LAB@@)
 
@@ -60,17 +60,17 @@ Ansible Managed Hosts
 
 ---
 
-- How to build your own LAB:
+## How to build your own LAB
 
-  - Fork training repo
+- Fork training repo
 
-  - Open Ansible playground
+- Open Ansible playground
 
-    - Create new Instance
+  - Create new Instance
 
-    - Clone your forked repo
+  - Clone your forked repo
 
-    - Build empty lab
+  - Build empty lab
 
 ```bash
 git clone https://git.homecredit.net/<USER>/<REPO> eit.trainings
@@ -82,8 +82,73 @@ cd eit.trainings/ansible/beginners/lab
 ---
 
 .exercise[
-```open @@SLIDES@@```<br />
-Fork training repo! You will use your fork repo!<br />
 ```open @@SLIDES_REPOS@@```<br />
+Fork it ! You will use your fork repo!<br />
 ```open @@LAB@@```<br />
+Play-> Create new instance
+```bash
+git clone https://git.homecredit.net/<USER>/<REPO> eit.trainings
+cd eit.trainings/ansible/beginners/lab
+./lab.sh -h
+./lab.sh -e
+```
+Play with the console and command-line tools
+]
+
+---
+
+class: extra-details
+
+## Tips and Tricks
+
+- Ansible Playground
+
+  - DON'T close browser window! You will lose everything!
+
+  - Save + push to git more often
+
+  - Ctrl+Ins (Copy) / Shift+Ins (Paste) or use mouse
+
+  - Alt + Enter -> Full screen of terminal
+
+- Vim
+
+  - F2 -> pastetoggle
+
+  - :w/:wq
+
+  - :q!
+
+---
+
+class: extra-details
+
+- Tmux
+
+  - Ctrl +b % -> split vertical
+
+  - Ctrl +b " -> split horizontal
+
+  - Ctrl +b c -> new window
+
+  - Ctrl +b d -> dettach
+
+  - tmux list-sessions
+
+- Screen
+
+  - Ctrl +a d -> dettach
+
+  - scren -ls
+
+  - screen -S NAME
+
+  - screen -r NAME
+
+---
+
+.exercise[
+```vim```<br />
+```tmux```<br />
+```screen```<br />
 ]

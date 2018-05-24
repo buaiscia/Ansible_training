@@ -14,14 +14,19 @@ Automation with Ansible<br/>Beginners<br/>
 
 .debug[
 ```
-?? ansible/
-?? slides/
+ M slides/ansible/beginners.html
+ M slides/ansible/beginners/Deploying_Ansible.md
+ M slides/ansible/beginners/Implementing_Playbooks.md
+ M slides/ansible/beginners/Introducing_Ansible.md
+ M slides/ansible/beginners/Introduction.md
+?? slides/ansible/images/ansible-architecture.png
 
 ```
 
-These slides have been built from commit: ??????
+These slides have been built from commit: ded606b
 
-[common/title.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/title.md)]
+
+[common/title.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/title.md)]
 ---
 
 class: title, in-person
@@ -38,7 +43,7 @@ Automation with Ansible<br/>Beginners<br/><br/><br/>
 **Slides: https://germanov.pages.homecredit.net/trainings/ansible/beginners/**
 ]
 
-.debug[[common/title.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/title.md)]
+.debug[[common/title.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/title.md)]
 ---
 ## Logistics - Prague
 
@@ -64,7 +69,7 @@ Automation with Ansible<br/>Beginners<br/><br/><br/>
 - Live feedback, questions, help: 
 -->
 
-.debug[[logistics-prague.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/logistics-prague.md)]
+.debug[[logistics-prague.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/logistics-prague.md)]
 ---
 ## About these slides
 
@@ -87,7 +92,7 @@ Automation with Ansible<br/>Beginners<br/><br/><br/>
 
 .footnote[.emoji[👇] Try it! The source file will be shown and you can view it on Git and fork and edit it.]
 
-.debug[[common/about-slides.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/about-slides.md)]
+.debug[[common/about-slides.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/about-slides.md)]
 ---
 
 name: toc-chapter-1
@@ -128,7 +133,7 @@ name: toc-chapter-2
 
 
 
-.debug[[common/toc.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/toc.md)]
+.debug[[common/toc.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/toc.md)]
 ---
 
 name: toc-introduction
@@ -166,7 +171,7 @@ Introduction
 - ... And looking for answers in the [StackOverflow](http://stackoverflow.com/questions/tagged/ansible),
   and other outlets
 
-.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
 ---
 
 ## Objectives
@@ -184,7 +189,7 @@ learn to manage inventories
 - Students will learn how to troubleshoot problems with Ansible Playbooks and
 Ansible Managed Hosts
 
-.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
 ---
 
 ## Prerequisites
@@ -199,10 +204,10 @@ Ansible Managed Hosts
 
   - Basic Scripting (Bash, Python, Powershell)
 
-.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
 ---
 
-## Lab environment
+## Training Lab environment
 
 - Ansible playground: [http://tools-cz1vg.cz.nonprod](@LAB@@)
 
@@ -210,20 +215,20 @@ Ansible Managed Hosts
 
 - Presentation slides: [https://germanov.pages.homecredit.net/trainings/ansible/beginners/](https://germanov.pages.homecredit.net/trainings/ansible/beginners/)
 
-.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
 ---
 
-- How to build your own LAB:
+## How to build your own LAB
 
-  - Fork training repo
+- Fork training repo
 
-  - Open Ansible playground
+- Open Ansible playground
 
-    - Create new Instance
+  - Create new Instance
 
-    - Clone your forked repo
+  - Clone your forked repo
 
-    - Build empty lab
+  - Build empty lab
 
 ```bash
 git clone https://git.homecredit.net/<USER>/<REPO> eit.trainings
@@ -232,17 +237,85 @@ cd eit.trainings/ansible/beginners/lab
 ./lab.sh -e
 ```
 
-.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
 ---
 
 .exercise[
-```open https://germanov.pages.homecredit.net/trainings/ansible/beginners/```<br />
-Fork training repo! You will use your fork repo!<br />
 ```open https://git.homecredit.net/germanov/eit.trainings```<br />
+Fork it ! You will use your fork repo!<br />
 ```open http://tools-cz1vg.cz.nonprod```<br />
+Play-> Create new instance
+```bash
+git clone https://git.homecredit.net/<USER>/<REPO> eit.trainings
+cd eit.trainings/ansible/beginners/lab
+./lab.sh -h
+./lab.sh -e
+```
+Play with the console and command-line tools
 ]
 
-.debug[[beginners/Introduction.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introduction.md)]
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
+---
+
+class: extra-details
+
+## Tips and Tricks
+
+- Ansible Playground
+
+  - DON'T close browser window! You will lose everything!
+
+  - Save + push to git more often
+
+  - Ctrl+Ins (Copy) / Shift+Ins (Paste) or use mouse
+
+  - Alt + Enter -> Full screen of terminal
+
+- Vim
+
+  - F2 -> pastetoggle
+
+  - :w/:wq
+
+  - :q!
+
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
+---
+
+class: extra-details
+
+- Tmux
+
+  - Ctrl +b % -> split vertical
+
+  - Ctrl +b " -> split horizontal
+
+  - Ctrl +b c -> new window
+
+  - Ctrl +b d -> dettach
+
+  - tmux list-sessions
+
+- Screen
+
+  - Ctrl +a d -> dettach
+
+  - scren -ls
+
+  - screen -S NAME
+
+  - screen -r NAME
+
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
+---
+
+.exercise[
+```vim```<br />
+```tmux```<br />
+```screen```<br />
+]
+
+.debug[[beginners/Introduction.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introduction.md)]
 ---
 
 name: toc-introducing-ansible
@@ -263,48 +336,54 @@ Introducing Ansible
 ---
 # Introducing Ansible
 
-* something
+* Ansible is an open source configuration management and orchestration utility. It can automate
+and standardize the configuration of remote hosts and virtual machines. Its orchestration
+functionality allows Ansible to coordinate the launch and graceful shutdown of multitiered
+applications. Because of this, Ansible can perform rolling updates of multiple systems in a way
+that results in zero downtime.
 
-* something1
+* Instead of writing custom, individualized scripts, system administrators create high-level plays in
+Ansible. A play performs a series of tasks on the host, or group of hosts, specified in the play. A
+file that contains one or more plays is called a playbook.
 
-* something
+* Ansible's architecture is agentless. Work is pushed to remote hosts when Ansible executes.
+Modules are the programs that perform the actual work of the tasks of a play. Ansible is
+immediately useful because it comes with hundreds of core modules that perform useful system
+administrative work
 
-.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+.debug[[beginners/Introducing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introducing_Ansible.md)]
 ---
 
 ## Overview of Ansible Architecture
 
-* something
+![ansible-architecture](images/ansible-architecture.png)
 
-* something1
+* Host inventory
 
-* something
+* Playbooks
 
-.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+* Core / Custom modules
+
+* Plugins / Connection plugins
+
+.debug[[beginners/Introducing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introducing_Ansible.md)]
 ---
 
 ## Ansible vs Other tools
 
-* something
+* Jenkins
 
-* something1
+* Puppet
 
-* something
+* Chef
 
-.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
----
+* Fabric
 
-class: extra-details
+1. Workflow - Push vs Pull
 
-## Section Summary
+2. Server management - master -> controller
 
-* something
-
-* something1
-
-* something
-
-.debug[[beginners/Introducing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Introducing_Ansible.md)]
+.debug[[beginners/Introducing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Introducing_Ansible.md)]
 ---
 
 name: toc-deploying-ansible
@@ -325,81 +404,143 @@ Deploying Ansible
 ---
 # Deploying Ansible
 
-* something
+* Install Ansible
 
-* something1
+* Manage Ansible Configuration Files
 
-* something
+* Run Ansible ad-hoc commands
 
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+* Manage Inventory
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
 ---
 
 ## Installing Ansible
 
-* something
+* Python v2 (v3 supported)
 
-* something1
+* SSH configuration (User authentication, Public key authentication)
 
-* something
+* Install ansible via package management (or bleeding edge if needed)<br />
+[Installation guide](http://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+.exercise[
+```yum list installed python```<br />
+```yum search ansible```<br />
+```# yum install epel-release```<br />
+```yum install ansible```<br />
+Check SSH setup!<br/>
+```ssh user@hosts```
+]
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
 ---
 
 ## Managing Ansible Configuration Files
 
-* something
+* /etc/ansible/ansible.cfg
 
-* something1
+* ~/.ansible.cfg
 
-* something
+* ./ansible.cfg
 
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+* $ANSIBLE_CONFIG
+
+```bash
+ansible --version
+grep "^\[" /etc/ansible/ansible.cfg
+```
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+.exercise[
+1. Define different configuration files and check the precedence
+]
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
 ---
 
 ## Running Ansible Ad Hoc Commands
 
-* something
+**ansible host-pattern -m module [-a 'module arguments'] [-i inventory]**
 
-* something1
+```bash
+ansible --help
+ansible -i '172.19.0.4,server02,server03.example.com,' \
+all \
+-m ping \
+-u root \
+-k \
+-v \
+--ssh-common-args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+```
 
-* something
+* ad hoc command configuration in ansible configuration file
 
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+    * remote_user
+
+    * host_key_checking
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+.exercise[
+```ansible -i 'localhost,' all -u root -k -m ping```<br />
+```ansible -i 'localhost,' all -a ls -l```<br />
+```ansible -i 'server03,' all -a ls -l```<br />
+]
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
 ---
 
 ## Managing Static Inventory
 
-* something
+* groups: custom groups, all and ungrouped
 
-* something1
+* server[01:20]
 
-* something
+* default inventory /etc/ansible/hosts
 
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+```
+green.example.com
+blue.example.com
+192.168.100.1
+192.168.100.10
+
+[webservers]
+alpha.example.org
+beta.example.org
+192.168.1.100
+192.168.1.110
+
+www[001:006].example.com
+```
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
+---
+
+* inventory host patterns
+
+    - 'webservers*'
+
+    - 'lab:server01', 'lab:&server02', 'lab:!server01'
+
+.exercise[
+```ansible -i 'localhost,' all -u root -k -m ping```<br />
+```ansible -i 'localhost,' all -a ls -l```<br />
+```ansible -i 'server03,' all -a ls -l```<br />
+Exercise inventory host patterns!
+]
+
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
 ---
 
 ## Managing Dynamic Inventories
 
-* something
+* to be discussed later
 
-* something1
-
-* something
-
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
----
-
-class: extra-details
-
-## Section Summary
-
-* something
-
-* something1
-
-* something
-
-.debug[[beginners/Deploying_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Deploying_Ansible.md)]
+.debug[[beginners/Deploying_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Deploying_Ansible.md)]
 ---
 
 name: toc-implementing-playbooks
@@ -420,30 +561,36 @@ Implementing Playbooks
 ---
 # Implementing Playbooks
 
-* something
+* Write YAML files
 
-* something1
+* Implement Ansible Playbooks
 
-* something
+* Write and execute a playbook
 
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
 ---
 
 ## Writing YAML files
 
-* something
+* YAML Ain’t Markup Language (YAML)
 
-* something1
+* Representation of data structures such as lists and
+associative arrays in an easy to write, human-readable format
 
-* something
+* Accomplished primarily by abandoning traditional enclosure syntax, such as brackets, braces, or
+opening and closing tags
 
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+* Instead, in YAML, data hierarchy structures are maintained using outline indentation.
+
+* Use spaces not TABs! (how to configure text redactors to use spaces insted of tabs?)
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
 ---
 
 * Start of File
 
 ```yaml
-"---"
+---#start of line
 
 ```
 
@@ -456,8 +603,18 @@ Implementing Playbooks
 * Strings
 
 ```yaml
-test: "This is a test"
+"This is a string"
+This is a string
+'This is a string'
+
+multiline_string: |
+Example Company
+123 Main Street
+Atlanta, GA 30303
 ```
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
 
 * Booleans
 
@@ -465,68 +622,89 @@ test: "This is a test"
 test_bool: True
 ```
 
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
----
-
 * Lists
 
 ```yaml
-- List1:
-  - List2:
+- red
+- green
+- blue
+fruits:
+  - yellow
+  - pink
+test_list:
+  [test1, test2, test3]
 ```
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
 
 * Dictionaries
 
 ```yaml
-Dict1:
-  Dict2:
+key: value
+course_name: Automation with Ansible
+name: Vladimir Germanov
+{course_name: Automation using Ansible, type: Beginners}
 ```
-
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
----
 
 * Line Folding
 
 ```yaml
-test: test
+fold_line: >
+            This is
+            a very long,
+            long, long, long
+            sentence.
 ```
 
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+* verifying YAML syntax
+
+```
+python -c 'import yaml, sys; print yaml.load(sys.stdin)' < myyaml.yml
+```
+
+* [json2yaml](https://www.json2yaml.com/)
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+.exercise[
+1. Write example YAML files
+2. Verify them
+]
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
 ---
 
 ## Implementing Modules
 
-* something
+* Core - maintained by Ansible (shiped with Ansible)
 
-* something1
+* Extra - maintained by community (shiped with Ansible)
 
-* something
+* Custom modules - own custom develped modules (NOT shiped with Ansible)
 
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+  * $ANSIBLE_LIBRARY
+
+  * library = /usr/share/my_modules/
+
+* Module Index/Categories [module_index](http://docs.ansible.com/ansible/latest/modules/modules_by_category.html)
+
+* ```ansiblep-doc MODULE```
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
+---
+
+.exercise[
+1. Discover ansible modules
+]
+
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
 ---
 
 ## Implementing Ansible Playbooks
 
-* something
-
-* something1
-
-* something
-
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
----
-
-class: extra-details
-
-## Section Summary
-
-* something
-
-* something1
-
-* something
-
-.debug[[beginners/Implementing_Playbooks.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Playbooks.md)]
+.debug[[beginners/Implementing_Playbooks.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Playbooks.md)]
 ---
 
 name: toc-managing-variable-and-inclusions
@@ -553,7 +731,7 @@ Managing Variable and Inclusions
 
 * something
 
-.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+.debug[[beginners/Managing_Variables_and_Inclusions.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
 ---
 
 ## Managing Variables
@@ -564,7 +742,7 @@ Managing Variable and Inclusions
 
 * something
 
-.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+.debug[[beginners/Managing_Variables_and_Inclusions.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
 ---
 
 ## Managing Facts
@@ -575,7 +753,7 @@ Managing Variable and Inclusions
 
 * something
 
-.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+.debug[[beginners/Managing_Variables_and_Inclusions.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
 ---
 
 ## Managing Inclusions
@@ -586,7 +764,7 @@ Managing Variable and Inclusions
 
 * something
 
-.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+.debug[[beginners/Managing_Variables_and_Inclusions.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
 ---
 
 class: extra-details
@@ -599,7 +777,7 @@ class: extra-details
 
 * something
 
-.debug[[beginners/Managing_Variables_and_Inclusions.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
+.debug[[beginners/Managing_Variables_and_Inclusions.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Managing_Variables_and_Inclusions.md)]
 ---
 
 name: toc-implementing-task-control
@@ -626,7 +804,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 ## Contructing Flow Control
@@ -637,7 +815,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 ## Contructing Flow Control - Loops
@@ -648,7 +826,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 ## Contructing Flow Control - Conditions
@@ -659,7 +837,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 ## Implementing Handlers
@@ -670,7 +848,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 ## Implementing Tags
@@ -681,7 +859,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 ## Handling Errors
@@ -692,7 +870,7 @@ Implementing Task Control
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 class: extra-details
@@ -705,7 +883,7 @@ class: extra-details
 
 * something
 
-.debug[[beginners/Implementing_Task_Control.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Task_Control.md)]
+.debug[[beginners/Implementing_Task_Control.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Task_Control.md)]
 ---
 
 name: toc-implementing-jinja-templates
@@ -732,7 +910,7 @@ Implementing Jinja2 Templates
 
 * something
 
-.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+.debug[[beginners/Implementing_Jinja2_Templates.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
 ---
 
 ## Describing Jijna2 Templates
@@ -743,7 +921,7 @@ Implementing Jinja2 Templates
 
 * something
 
-.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+.debug[[beginners/Implementing_Jinja2_Templates.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
 ---
 
 ## Implementing Jijna2 Templates
@@ -754,7 +932,7 @@ Implementing Jinja2 Templates
 
 * something
 
-.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+.debug[[beginners/Implementing_Jinja2_Templates.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
 ---
 
 class: extra-details
@@ -767,7 +945,7 @@ class: extra-details
 
 * something
 
-.debug[[beginners/Implementing_Jinja2_Templates.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
+.debug[[beginners/Implementing_Jinja2_Templates.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Jinja2_Templates.md)]
 ---
 
 name: toc-implementing-roles
@@ -788,29 +966,29 @@ Implementing Roles
 ---
 # Implementing Roles
 
-.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+.debug[[beginners/Implementing_Roles.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Roles.md)]
 ---
 
 ## Describing Roles Structure
 
-.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+.debug[[beginners/Implementing_Roles.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Roles.md)]
 ---
 
 ## Creating Roles
 
-.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+.debug[[beginners/Implementing_Roles.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Roles.md)]
 ---
 
 ## Deploying Roles with Ansible Galaxy
 
-.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+.debug[[beginners/Implementing_Roles.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Roles.md)]
 ---
 
 class: extra-details
 
 ## Section Summary
 
-.debug[[beginners/Implementing_Roles.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Roles.md)]
+.debug[[beginners/Implementing_Roles.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Roles.md)]
 ---
 
 name: toc-optimizing-ansible
@@ -831,29 +1009,29 @@ Optimizing Ansible
 ---
 # Optimizing Ansible
 
-.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+.debug[[beginners/Optimizing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Optimizing_Ansible.md)]
 ---
 
 ## Configuring Connection Types
 
-.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+.debug[[beginners/Optimizing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Optimizing_Ansible.md)]
 ---
 
 ## Configuring Delegation
 
-.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+.debug[[beginners/Optimizing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Optimizing_Ansible.md)]
 ---
 
 ## Configuring Parallelism
 
-.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+.debug[[beginners/Optimizing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Optimizing_Ansible.md)]
 ---
 
 class: extra-details
 
 ## Section Summary
 
-.debug[[beginners/Optimizing_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Optimizing_Ansible.md)]
+.debug[[beginners/Optimizing_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Optimizing_Ansible.md)]
 ---
 
 name: toc-implementing-ansible-vault
@@ -874,24 +1052,24 @@ Implementing Ansible Vault
 ---
 # Implementing Ansible Vault
 
-.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+.debug[[beginners/Implementing_Ansible_Vault.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
 ---
 
 ## Configuting Ansible Vault
 
-.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+.debug[[beginners/Implementing_Ansible_Vault.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
 ---
 
 ## Executing Ansible Vault
 
-.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+.debug[[beginners/Implementing_Ansible_Vault.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
 ---
 
 class: extra-details
 
 ## Section Summary
 
-.debug[[beginners/Implementing_Ansible_Vault.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
+.debug[[beginners/Implementing_Ansible_Vault.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Implementing_Ansible_Vault.md)]
 ---
 
 name: toc-troubleshooting-ansible
@@ -912,24 +1090,24 @@ Troubleshooting Ansible
 ---
 # Troubleshooting Ansible
 
-.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+.debug[[beginners/Troubleshooting_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Troubleshooting_Ansible.md)]
 ---
 
 ## Troubleshooting Playbooks
 
-.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+.debug[[beginners/Troubleshooting_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Troubleshooting_Ansible.md)]
 ---
 
 ## Troubleshooting Ansible Managed Hosts
 
-.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+.debug[[beginners/Troubleshooting_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Troubleshooting_Ansible.md)]
 ---
 
 class: extra-details
 
 ## Section Summary
 
-.debug[[beginners/Troubleshooting_Ansible.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Troubleshooting_Ansible.md)]
+.debug[[beginners/Troubleshooting_Ansible.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Troubleshooting_Ansible.md)]
 ---
 
 name: toc-links-and-resources
@@ -956,20 +1134,20 @@ Links and resources
 
 .footnote[These slides (and future updates) are on → https://germanov.pages.homecredit.net/trainings/ansible/beginners/]
 
-.debug[[beginners/Links.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/beginners/Links.md)]
+.debug[[beginners/Links.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/beginners/Links.md)]
 ---
 class: title, self-paced
 
 Thank you!
 
-.debug[[common/thankyou.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/thankyou.md)]
+.debug[[common/thankyou.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/thankyou.md)]
 ---
 
 class: title, in-person
 
 That's all, folks! <br/> Questions?
 
-.debug[[common/thankyou.md](file:///home/vlado/Ansible/Trainings/eit.trainings/slides/ansible/common/thankyou.md)]</textarea>
+.debug[[common/thankyou.md](git@git.homecredit.net:germanov/eit.trainings.git/tree/master/slides/ansible/common/thankyou.md)]</textarea>
     <script src="remark.min.js" type="text/javascript">
     </script>
     <script type="text/javascript">
