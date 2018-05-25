@@ -15,3 +15,4 @@
       when: ansible_distribution == 'Ubuntu'
 
     - import_tasks: tasks/test3.yml
+      when: ansible_distribution == 'Ubuntu'
