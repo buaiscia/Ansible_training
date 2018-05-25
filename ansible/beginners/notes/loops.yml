@@ -1,7 +1,7 @@
 ---
 - name: 'This is main playbook'
   hosts: all
-  # gather_facts: True
+  gather_facts: False
 
   vars:
     test:
@@ -34,6 +34,6 @@
     - name: 'Test nested loops with list of lists'
       debug:
         msg: "This is name: {{ item[0] }} and key: {{ item[1] }}"
-      with_items:
+      with_nested:
         - [ 'alice', 'bob' ]
         - [ 'clientdb', 'employeedb', 'providerdb' ]
