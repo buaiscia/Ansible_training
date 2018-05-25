@@ -1,0 +1,3 @@
+- src: git@git.homecredit.net:germanov/httpd_test.git
+  scm: git
+  version: "master"
