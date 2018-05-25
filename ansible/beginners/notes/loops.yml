@@ -54,3 +54,15 @@
       with_together:
         - "{{ alpha1 }}"
         - "{{ numbers }}"
+
+    - name: 'Loop over inventory'
+      debug:
+        msg: "{{ item }}"
+      with_items:
+        - "{{ groups['all'] }}"
+
+    - name: 'Use facts/var of specific host'
+      debug:
+        msg: "{{ hostvars[item]['ansible_all_ipv4_addresses'] }}"
+      with_items:
+        - "{{ groups['all'] }}"
