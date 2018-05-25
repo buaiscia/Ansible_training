@@ -22,3 +22,11 @@
         - test1
         - test2
         - test3
+
+    - name: 'Test loop with list of dicts'
+      debug:
+        msg: "This is name: {{ item.name }} and key: {{ item.key }}"
+      with_items:
+        - { name: vladimir, key: mykey}
+        - { name: test1, key: mykey1}
+        - { name: test2, key: mykey2}
