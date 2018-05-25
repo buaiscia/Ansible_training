@@ -1,0 +1,24 @@
+---
+- name: 'This is main playbook'
+  hosts: all
+  # gather_facts: True
+
+  var:
+    test:
+      - test1
+      - test2
+      - test3
+
+  tasks:
+    - name: 'Test loop with var containing list'
+      debug:
+        msg: "This is {{ item }}"
+      with_items: "{{ test }}"
+
+    - name: 'Test loop with list'
+      debug:
+        msg: "This is {{ item }}"
+      with_items:
+        - test1
+        - test2
+        - test3

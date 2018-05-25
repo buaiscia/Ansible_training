@@ -3,9 +3,12 @@
   hosts: all
   gather_facts: True
 
+  var:
+    var1: "param1"
+
   tasks:
     - name: 'Execute some command'
-      shell: cat /etc/hostname
+      shell: "/root/script.sh {{ var1 }} param2 param3 | fdsdf"
       register: output
 
     - name: 'Debug var'
@@ -14,5 +17,5 @@
 
     - name: 'Debug msg'
       debug:
-        msg: "There is ansible string inside"
-      when: 'ansible' in output.stdout
+        msg: "There is server01 string inside"
+      when: '"ser" in output.stdout'
