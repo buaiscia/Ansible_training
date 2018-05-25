@@ -8,6 +8,9 @@
       - test1
       - test2
       - test3
+    alpha: [ 'a', 'b', 'c', 'd' ]
+    alpha1: [ 'a', 'b', 'c', 'd', 'e' ]
+    numbers:  [ 1, 2, 3, 4 ]
 
   tasks:
     - name: 'Test loop with var containing list'
@@ -23,7 +26,7 @@
         - test2
         - test3
 
-    - name: 'Test loop with list of dicts'
+    - name: 'Test loop with list of dicts(hashes)'
       debug:
         msg: "This is name: {{ item.name }} and key: {{ item.key }}"
       with_items:
@@ -37,3 +40,17 @@
       with_nested:
         - [ 'alice', 'bob' ]
         - [ 'clientdb', 'employeedb', 'providerdb' ]
+
+    - name: 'Test loops over parallel sets of data'
+      debug:
+        msg: "{{ item.0 }} and {{ item.1 }}"
+      with_together:
+        - "{{ alpha }}"
+        - "{{ numbers }}"
+
+    - name: 'Test loops over parallel sets of data (not with equal lenght)'
+      debug:
+        msg: "{{ item.0 }} and {{ item.1 }}"
+      with_together:
+        - "{{ alpha1 }}"
+        - "{{ numbers }}"
