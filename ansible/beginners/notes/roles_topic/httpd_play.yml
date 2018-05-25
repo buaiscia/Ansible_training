@@ -1,0 +1,7 @@
+---
+- name: 'HTTPD'
+  hosts: web
+  gather_facts: True
+
+  roles:
+    httpd_test
