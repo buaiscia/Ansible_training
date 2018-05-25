@@ -10,9 +10,18 @@
   tasks:
     - name: 'Show vars'
       debug:
-        var: secret_var1
+        msg: "{{ secret_var1 }}"
       ignore_errors: yes
 
     - name: 'Show var'
       debug:
         var: secret_var
+
+    - name: Fail task when the command error output prints FAILED
+      command: cat /etc/hostname
+      register: command_result
+      failed_when: "'N0762' not in command_result.stdout"
+
+    - name: 'Executing date'
+      shell: date
+      changed_when: False
