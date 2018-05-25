@@ -63,6 +63,11 @@
 
     - name: 'Use facts/var of specific host'
       debug:
-        msg: "{{ hostvars[item]['ansible_all_ipv4_addresses'] }}"
+        msg: "{{ hostvars[item]['test'] }}"
       with_items:
         - "{{ groups['all'] }}"
+
+    - name: 'Use inventory_hostname'
+      debug:
+        msg: "{{ hostvars[inventory_hostname]['test'] }}"
+      when: inventory_hostname == "server02"
