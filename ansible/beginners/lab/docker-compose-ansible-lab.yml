@@ -16,6 +16,7 @@ services:
       - /etc/ansible/hosts:/etc/ansible/hosts
       - /etc/ansible/ansible.cfg:/etc/ansible/ansible.cfg
       - /etc/hosts:/etc/hosts
+      - ../notes:/root/ansible
     cap_add:
       - SYS_ADMIN
   server01:
