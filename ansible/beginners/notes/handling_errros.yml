@@ -1,0 +1,18 @@
+---
+- name: 'Test Vault'
+  hosts: localhost
+  gather_facts: False
+  connection: local
+
+  vars:
+    secret_var: "vladimir"
+
+  tasks:
+    - name: 'Show vars'
+      debug:
+        var: secret_var1
+      ignore_errors: yes
+
+    - name: 'Show var'
+      debug:
+        var: secret_var
