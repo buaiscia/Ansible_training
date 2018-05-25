@@ -4,4 +4,4 @@
   gather_facts: True
 
   roles:
-    httpd_test
+    - httpd_test
