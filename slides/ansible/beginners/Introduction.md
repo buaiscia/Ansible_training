@@ -15,7 +15,8 @@
  [documentation](https://docs.ansible.com) ...
 
 - ... And looking for answers in the [StackOverflow](http://stackoverflow.com/questions/tagged/ansible),
-  and other outlets
+
+- ... And looking for some videos [Video](https://www.ansible.com/resources/videos)
 
 ---
 
