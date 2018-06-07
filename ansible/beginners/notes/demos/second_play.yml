@@ -52,8 +52,8 @@
 
     - name: "7. copy one file from controller to servers"
       copy:
-        src: /root/ansible_beginners/notes/demos/test_file
-        dst: /root/eit-ansible
+        src: "/root/ansible_beginners/notes/demos/test_file"
+        dest: "/root/eit-ansible"
         owner: root
         group: users
         mode: 0711
