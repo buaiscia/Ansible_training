@@ -1,0 +1,69 @@
+---
+# 1. Create one user: eit
+# 2. Create a file
+# 3. Create a directory
+# 4. Install telnet + httpd
+# 5. Start httpd service
+# 6. wait_for port 80 to become open
+# 7. copy one file from controller to servers
+# 8. debug
+- name: "This is my second playbook"
+  hosts: all
+  gather_facts: False
+
+  tasks:
+    - name: "1. Create one user: eit"
+      user:
+        name: eit
+        shell: /bin/bash
+        # state: absent
+
+    - name: "2. Create a file"
+      file:
+        path: "/root/eit-ansible.txt"
+        state: touch
+
+    - name: "3. Create a directory"
+      file:
+        path: "/root/eit-ansible"
+        state: directory
+        mode: 0700
+
+    - name: "4.1. Install telnet"
+      yum:
+        name: "telnet"
+        state: installed
+
+    - name: "4.2. Install httpd"
+      yum:
+        name: "httpd"
+        state: installed
+
+    - name: "5. Start httpd service"
+      service:
+        name: "httpd"
+        state: started
+
+    - name: "6. wait for port 80 to become open"
+      wait_for:
+        port: 80
+        state: started
+        delay: 10 # start checking after 10 sec
+
+    - name: "7. copy one file from controller to servers"
+      copy:
+        src: /root/ansible_beginners/notes/demos/test_file
+        dst: /root/eit-ansible
+        owner: root
+        group: users
+        mode: 0711
+
+    - name: "8. debug"
+      debug:
+        msg: "Hello Ansible!"
+
+    - name: "8. debug"
+      debug:
+        var: "{{ debug_var }}"
+      vars:
+        debug_var: "Hello EIT Ansible"
