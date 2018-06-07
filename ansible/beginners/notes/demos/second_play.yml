@@ -64,6 +64,6 @@
 
     - name: "8. debug"
       debug:
-        var: "{{ debug_var }}"
+        var: debug_var
       vars:
         debug_var: "Hello EIT Ansible"
