@@ -10,3 +10,6 @@ server02
 
 [db]
 server03
+
+[all:vars]
+test2=2test

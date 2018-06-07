@@ -1,0 +1,22 @@
+---
+- name: "testing variables"
+  hosts: all
+  gather_facts: False
+
+  vars:
+    test1: "This is a test1 variable"
+    test2: "This is a test2 variable"
+    test3: "This is a test3 variable"
+
+  tasks:
+    - name: "Print of test1"
+      debug:
+        var: test1
+
+    - name: "Print of test2"
+      debug:
+        var: test2
+
+    - name: "Print of test3"
+      debug:
+        var: test3
