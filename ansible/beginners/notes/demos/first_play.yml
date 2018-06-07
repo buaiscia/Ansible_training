@@ -7,10 +7,10 @@
       ping:
 
     - name: "My 2nd task"
-      ping:
+      shell: ls -l
 
     - name: "My 3rd task"
-      ping:
+      command: ls -l
 
     - name: "My 4th task"
       ping:
