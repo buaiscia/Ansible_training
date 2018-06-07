@@ -7,6 +7,10 @@
     test1: "This is a test1 variable"
     test2: "This is a test2 variable"
     test3: "This is a test3 variable"
+    test4:
+      - red
+      - yellow
+      - green
 
   tasks:
     - name: "Print of test1"
@@ -22,3 +26,11 @@
     - name: "Print of test3"
       debug:
         var: test3
+
+    - name: "Print of test4"
+      debug:
+        var: test4
+
+    - name: "Print of test4"
+      debug:
+        msg: test4.red
