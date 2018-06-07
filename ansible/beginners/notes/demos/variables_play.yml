@@ -33,4 +33,4 @@
 
     - name: "Print of test4"
       debug:
-        msg: test4.red
+        msg: "{{ test4.red }}"
