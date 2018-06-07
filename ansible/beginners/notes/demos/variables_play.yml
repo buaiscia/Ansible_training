@@ -16,6 +16,8 @@
     - name: "Print of test2"
       debug:
         var: test2
+      vars:
+        test2: 2test
 
     - name: "Print of test3"
       debug:
