@@ -1,7 +1,7 @@
 ---
 - name: "testing variables"
   hosts: all
-  gather_facts: False
+  # gather_facts: False
 
   vars:
     test1: "This is a test1 variable"

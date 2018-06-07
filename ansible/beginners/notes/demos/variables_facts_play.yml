@@ -1,0 +1,25 @@
+---
+- name: "testing ansible facts"
+  hosts: all
+  # gather_facts: False
+
+  tasks:
+    - name: "Print ipv4address - with ."
+      debug:
+        msg: "{{ ansible_default_ipv4.address }}"
+
+    - name: "Print ipv4address with []"
+      debug:
+        msg: "{{ ansible_default_ipv4['address'] }}"
+
+    - name: "Print ipv4address"
+      debug:
+        var: ansible_default_ipv4.address
+
+    - name: "Print ansible distribution"
+      debug:
+        var: ansible_distribution
+
+    - name: "Print ansible distribution"
+      debug:
+        msg: "{{ ansible_distribution }}"
