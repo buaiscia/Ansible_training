@@ -1,0 +1,12 @@
+server01
+server02
+server03
+
+[web]
+server01
+
+[ftp]
+server02
+
+[db]
+server03

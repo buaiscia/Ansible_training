@@ -1,0 +1,74 @@
+---
+# This is a comment
+
+# strings
+"This is a string"
+'This is a string'
+
+test: "This is a test"
+test: 'This is a test'
+test: This is a test
+
+# string in multiple lines
+test_str: |
+  test
+  vlado
+  pavel
+  jiri
+
+  "test vlado pavel jiri"
+
+# boolean
+bool_test: "True|bool"
+bool_test: "False"
+
+# array (list)
+- yellow
+- red
+- green
+
+test_array:
+  - red
+  - yellow
+  - green
+
+complex_test_array:
+  - red
+  - yellow
+  - green:
+    - test1
+    - test2
+    - test3
+
+# hash (dictionary)
+test_hash:
+  red:
+  green:
+  yellow:
+
+complex_test_hash:
+  red:
+  green:
+  yellow:
+    black:
+    blue:
+    white:
+
+# mixture of dicts + lists
+complex_data:
+  - test:
+      vlado:
+        - first
+        - second
+        - third
+      pavel:
+        - forth
+        - fifth
+  - test1:
+      test2:
+
+# folding
+test_f: >
+  test
+  test1
+  test2
