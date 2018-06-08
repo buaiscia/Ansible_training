@@ -5,3 +5,8 @@
     state: installed
   with_items:
     - "{{ packages }}"
+
+- name: "Start httpd"
+  service:
+    name: httpd
+    state: started
