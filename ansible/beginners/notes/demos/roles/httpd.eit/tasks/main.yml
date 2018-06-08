@@ -10,3 +10,45 @@
   service:
     name: httpd
     state: started
+
+- name: 'Ensure host.d exists'
+  file:
+    path: /etc/httpd/host.d
+    state: directory
+
+- name: 'Add Include host.d/*.conf'
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    line: IncludeOptional host.d/*.conf
+    insertafter: '^IncludeOptional conf.d/*.conf'
+    backup: yes
+
+# - name: 'Create simple virtual host'
+#   template:
+#     src: virt_host.j2
+#     dest: /etc/httpd/host.d/test.conf
+#   notify:
+#     - restart httpd
+#   register: virt_host
+
+# - name: 'Restart httpd'
+#   service:
+#     name: httpd
+#     state: restarted
+#   when: virt_host.changed
+
+# - name: 'Ensure host.d exists'
+#   file:
+#     path: /var/www/html/
+#     state: directory
+
+# - name: 'Create simple virtual host'
+#   template:
+#     src: index.html.j2
+#     dest: /var/www/html/index.html
+#     mode: 0644
+
+# - name: 'Start httpd'
+#   service:
+#     name: httpd
+#     state: started
