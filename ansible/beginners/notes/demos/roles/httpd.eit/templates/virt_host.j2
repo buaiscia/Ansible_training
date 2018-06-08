@@ -1,0 +1,11 @@
+<VirtualHost {{ ip_addr_virt_host }}:{{ ip_addr_virt_port }}>
+        ServerName {{ inventory_hostname }}
+        ServerAdmin {{ httpd_server_admin }}
+
+{% raw %}
+# {{ httpd_server_admin }}
+# test virt_host.changed
+{% endraw %}
+
+        DocumentRoot {{ httpd_document_root }}
+</VirtualHost>

@@ -3,3 +3,8 @@
 packages:
   - httpd
   - curl
+
+ip_addr_virt_host: "{{ ansible_default_ipv4.address }}"
+ip_addr_virt_port: 80
+httpd_server_admin: webmasters@embedit.cz
+httpd_document_root: /var/www/html

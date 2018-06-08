@@ -23,13 +23,13 @@
     insertafter: '^IncludeOptional conf.d/*.conf'
     backup: yes
 
-# - name: 'Create simple virtual host'
-#   template:
-#     src: virt_host.j2
-#     dest: /etc/httpd/host.d/test.conf
-#   notify:
-#     - restart httpd
-#   register: virt_host
+- name: 'Create simple virtual host'
+  template:
+    src: virt_host.j2
+    dest: /etc/httpd/host.d/test.conf
+  notify:
+    - restart httpd
+  register: virt_host
 
 # - name: 'Restart httpd'
 #   service:

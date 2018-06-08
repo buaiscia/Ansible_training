@@ -1,2 +1,6 @@
 ---
 # handlers file for httpd.eit
+- name: 'restart httpd'
+  service:
+    name: httpd
+    state: restarted
