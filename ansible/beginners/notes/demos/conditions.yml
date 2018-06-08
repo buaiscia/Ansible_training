@@ -11,6 +11,7 @@
       copy:
         src: script.sh
         dest: /root/script.sh
+        mode: 0755
 
     - name: 'Execute script.sh'
       shell: "/root/script.sh {{ var1 }} param2 param3"
