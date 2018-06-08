@@ -11,6 +11,13 @@
     alpha: [ 'a', 'b', 'c', 'd' ]
     alpha1: [ 'a', 'b', 'c', 'd', 'e' ]
     numbers:  [ 1, 2, 3, 4 ]
+    loop_list_hash:
+      - name: vladimir
+        key: vladimirkey
+      - name: pavel
+        key: pavelkey
+      - name: michal
+        key: michalkey
 
   tasks:
     - name: 'Test loop with var containing list'
@@ -33,6 +40,11 @@
         - { name: vladimir, key: mykey}
         - { name: test1, key: mykey1}
         - { name: test2, key: mykey2}
+
+    - name: 'Test loop with var containing list of dicts(hashes)'
+      debug:
+        msg: "This is name: {{ item.name }} and key: {{ item.key }}"
+      with_items: "{{ loop_list_hash }}"
 
     - name: 'Test nested loops with list of lists'
       debug:
