@@ -11,3 +11,12 @@
     - name: "Print var"
       debug:
         var: hostnamctl_output
+
+    - name: "Check if /etc/hosts exists"
+      stat:
+        path: /etc/hosts
+      register: stat_output
+
+    - name: "Print var"
+      debug:
+        var: stat_output
