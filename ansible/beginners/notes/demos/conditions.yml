@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: True
 
-  var:
+  vars:
     var1: "param1"
 
   tasks:
