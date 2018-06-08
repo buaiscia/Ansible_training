@@ -1,0 +1,20 @@
+---
+- name: 'This is main playbook'
+  hosts: all
+  gather_facts: True
+
+  tasks:
+    - name: 'Start of the play'
+      debug:
+        msg: "Lets play!"
+
+    - include_tasks: tasks/test1.yml
+      when: ansible_distribution == 'CentOS'
+
+    - include_tasks: tasks/test2.yml
+      when: ansible_distribution == 'Ubuntu'
+
+    - import_tasks: tasks/test3.yml
+      when: ansible_distribution == 'Ubuntu'
+
+- import_playbook: other_play.yml

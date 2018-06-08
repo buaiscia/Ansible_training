@@ -1,0 +1,9 @@
+---
+- name: 'Other playbook'
+  hosts: web
+  gather_facts: True
+
+  tasks:
+    - name: 'Start of the other play'
+      debug:
+        msg: "Lets play!"
