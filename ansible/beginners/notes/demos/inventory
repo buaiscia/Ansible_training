@@ -1,6 +1,6 @@
-server01 test=test1
-server02 test=test2
-server03 test=test3
+server01 test=test1 welcome_message=server01
+server02 test=test2 welcome_message=server02
+server03 test=test3 welcome_message=server03
 
 [web]
 server01
