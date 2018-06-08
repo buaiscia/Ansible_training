@@ -1,0 +1,13 @@
+---
+- name: "Register variables"
+  hosts: all
+  gather_facts: False
+
+  tasks:
+    - name: "Execute hostnamectl"
+      shell: hostnamectl
+      register: hostnamctl_output
+
+    - name: "Print var"
+      debug:
+        var: hostnamctl_output
