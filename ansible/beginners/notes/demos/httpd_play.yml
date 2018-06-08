@@ -1,0 +1,7 @@
+---
+- name: "Provision HTTPD server"
+  hosts: all
+  gather_facts: True
+
+  roles:
+    - httpd.eit
