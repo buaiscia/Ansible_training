@@ -42,7 +42,7 @@
     path: "{{ httpd_document_root }}"
   register: doc_root_directory
 
-- name: 'Create {{ httpd_document_root }} if doesn't exists'
+- name: "Create {{ httpd_document_root }} if doesn't exists"
   file:
     path: "{{ httpd_document_root }}"
     state: directory
