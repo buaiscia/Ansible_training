@@ -24,4 +24,4 @@
     - name: 'Debug msg'
       debug:
         msg: "There is param1 string inside"
-      when: '"param1" in output.stdout'
+      when: '"param1" in output.stdout' # when: output.rc == 0
