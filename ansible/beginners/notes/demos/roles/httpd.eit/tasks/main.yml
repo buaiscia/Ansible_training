@@ -1,3 +1,7 @@
 ---
-- name: "Ping"
-  ping:
+- name: "Install httpd"
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - "{{ packages }}"

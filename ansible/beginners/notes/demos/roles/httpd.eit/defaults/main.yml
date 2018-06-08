@@ -1,2 +1,5 @@
 ---
 # defaults file for httpd.eit
+packages:
+  - httpd
+  - curl
