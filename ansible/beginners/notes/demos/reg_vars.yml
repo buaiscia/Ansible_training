@@ -20,3 +20,13 @@
     - name: "Print var"
       debug:
         var: stat_output
+
+    - name: "Print something if file exists"
+      debug:
+        msg: "File really exists"
+      when: stat_output.stat.exists|bool
+
+    - name: "Print something if file exists"
+      debug:
+        msg: "File really exists"
+      when: not stat_output.stat.exists|bool
