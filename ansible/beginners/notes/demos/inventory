@@ -1,6 +1,6 @@
-server01
-server02
-server03
+server01 test=test1
+server02 test=test2
+server03 test=test3
 
 [web]
 server01
