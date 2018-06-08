@@ -12,7 +12,7 @@
         src: script.sh
         dest: /root/script.sh
 
-    - name: 'Execute some command'
+    - name: 'Execute script.sh'
       shell: "/root/script.sh {{ var1 }} param2 param3"
       register: output
 
@@ -22,5 +22,5 @@
 
     - name: 'Debug msg'
       debug:
-        msg: "There is server01 string inside"
-      when: '"ser" in output.stdout'
+        msg: "There is param1 string inside"
+      when: '"param1" in output.stdout'
