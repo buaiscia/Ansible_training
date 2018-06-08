@@ -37,16 +37,22 @@
 #     state: restarted
 #   when: virt_host.changed
 
-# - name: 'Ensure host.d exists'
-#   file:
-#     path: /var/www/html/
-#     state: directory
+- name: 'Check if {{ httpd_document_root }} exists'
+  stat:
+    path: "{{ httpd_document_root }}"
+  register: doc_root_directory
 
-# - name: 'Create simple virtual host'
-#   template:
-#     src: index.html.j2
-#     dest: /var/www/html/index.html
-#     mode: 0644
+- name: 'Create {{ httpd_document_root }} if doesn't exists'
+  file:
+    path: "{{ httpd_document_root }}"
+    state: directory
+  when: not doc_root_directory.stat.exists|bool
+
+- name: 'Create simple welcome page'
+  template:
+    src: index.html.j2
+    dest: "{{ httpd_document_root }}/index.html"
+    mode: 0644
 
 # - name: 'Start httpd'
 #   service:
