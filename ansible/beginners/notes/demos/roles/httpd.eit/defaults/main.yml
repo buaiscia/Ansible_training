@@ -10,3 +10,5 @@ httpd_server_admin: webmasters@embedit.cz
 httpd_document_root: /var/www/html
 
 welcome_message: "Ansible Brno 07-08.06 course"
+
+httpd_dir: "/etc/httpd/"

@@ -13,12 +13,12 @@
 
 - name: 'Ensure host.d exists'
   file:
-    path: /etc/httpd/host.d
+    path: "{{ httpd_dir }}/host.d"
     state: directory
 
 - name: 'Add Include host.d/*.conf'
   lineinfile:
-    path: /etc/httpd/conf/httpd.conf
+    path: "{{ httpd_dir }}/conf/httpd.conf"
     line: IncludeOptional host.d/*.conf
     insertafter: '^IncludeOptional conf.d/*.conf'
     backup: yes
@@ -26,7 +26,7 @@
 - name: 'Create simple virtual host'
   template:
     src: virt_host.j2
-    dest: /etc/httpd/host.d/test.conf
+    dest: "{{ httpd_dir }}/host.d/test.conf"
   notify:
     - restart httpd
   register: virt_host
