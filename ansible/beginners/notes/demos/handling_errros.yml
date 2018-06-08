@@ -1,5 +1,5 @@
 ---
-- name: 'Test Vault'
+- name: 'Handling Errors'
   hosts: localhost
   gather_facts: False
   connection: local
